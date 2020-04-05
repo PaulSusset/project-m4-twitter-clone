@@ -12,7 +12,7 @@ const TitleBar = () => {
   return (
     <>
       {currentPage !== "Home" ? (
-        <TitleLink onClick={history.goBack}>
+        <TitleLink to="javascript:void(0);" onClick={history.goBack}>
           <Icon icon={arrowLeft} size={26} style={{ marginRight: "5px" }} />{" "}
           {currentPage}
         </TitleLink>
@@ -43,7 +43,7 @@ const TitleLink = styled(Link)`
   border-right: 1px solid lightgrey;
   padding: 22px;
   background: white;
-  z-index: 2;
+  z-index: 3;
 `;
 const Title = styled.div`
   box-sizing: border-box;

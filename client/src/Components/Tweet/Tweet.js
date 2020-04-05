@@ -10,20 +10,26 @@ import { COLORS } from "../../constants";
 const Tweet = ({ id }) => {
   const tweetLogoArr = [
     { type: "messageCircle", color: "primary" },
-    { type: "repeat", color: "green" },
-    { type: "heart", color: "red" },
-    { type: "share", color: "primary" }
+    { type: "retweet", color: "green" },
+    { type: "like", color: "red" },
+    { type: "share", color: "primary" },
   ];
-
+  const [isLiked, setIsLiked] = useState(false);
+  const [isRetweeted, setIsRetweeted] = useState(false);
   const [tweetInfo, setTweetInfo] = useState({});
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     fetch(`/api/tweet/${id}`)
-      .then(data => data.json())
-      .then(data => {
-        console.log(data["tweet"]);
+      .then((data) => data.json())
+      .then((data) => {
         setTweetInfo(data["tweet"]);
+        return tweetInfo;
+      })
+      .then((tweet) => {
         setLoaded(true);
+        setIsLiked(tweet.isLiked);
+        console.log(tweetInfo);
+        setIsRetweeted(tweetInfo.isRetweeted);
       });
   }, []);
   return (
@@ -42,15 +48,17 @@ const Tweet = ({ id }) => {
           )}
           <Actual>
             <div>
-              <Avatar src={tweetInfo["author"]["avatarSrc"]} alt="avatar" />
+              <Link to={`/profile/${tweetInfo.author.handle}`}>
+                <Avatar src={tweetInfo["author"]["avatarSrc"]} alt="avatar" />
+              </Link>
             </div>
-            <div>
+            <div style={{ width: "100%" }}>
               <Tweeter to={`/profile/${tweetInfo.author.handle}`}>
                 <DisplayName>{tweetInfo["author"]["displayName"]}</DisplayName>
                 <Handle>
                   @{tweetInfo.author.handle} •{" "}
                   <span>
-                    {format(new Date(tweetInfo["sortedTimestamp"]), "MMM Do")}
+                    {format(new Date(tweetInfo["sortedTimestamp"]), "MMM do")}
                   </span>
                 </Handle>
               </Tweeter>
@@ -68,6 +76,11 @@ const Tweet = ({ id }) => {
                       type={logo.type}
                       id={i}
                       key={logo.type}
+                      setIsLiked={setIsLiked}
+                      isLiked={isLiked}
+                      isRetweeted={isRetweeted}
+                      setIsRetweeted={setIsRetweeted}
+                      tweetId={id}
                     />
                   );
                 })}
@@ -101,6 +114,7 @@ const Tweeter = styled(Link)`
   padding-bottom: 5px;
   color: black;
   text-decoration: none;
+  width: 100%;
   &:hover > h3 {
     text-decoration: underline;
   }
@@ -113,6 +127,7 @@ const Media = styled.img`
 `;
 const Actual = styled.div`
   display: flex;
+  width: 100%;
 `;
 const Retweet = styled(Link)`
   color: gray;
@@ -147,6 +162,7 @@ const LogoBar = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  width: 100%;
 `;
 
 export default Tweet;

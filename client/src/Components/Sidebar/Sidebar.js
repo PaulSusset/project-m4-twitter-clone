@@ -6,14 +6,12 @@ import { Icon } from "react-icons-kit";
 import { home, user, bell, bookmark } from "react-icons-kit/feather";
 import { COLORS } from "../../constants";
 import { CurrentUserContext } from "../CurrentUserContext/CurrentUserContext";
-import Profile from "../Profile";
 
 const Sidebar = () => {
   const { currentUser } = useContext(CurrentUserContext);
   let handle = undefined;
   if (currentUser) {
     handle = currentUser.profile.handle;
-    console.log("handle", handle);
   }
   return (
     <StyledSidebar>

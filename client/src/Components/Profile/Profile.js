@@ -7,20 +7,21 @@ import Tweet from "../Tweet";
 import { Icon } from "react-icons-kit";
 import { calendar, mapPin } from "react-icons-kit/feather";
 import { CurrentUserContext } from "../CurrentUserContext/CurrentUserContext";
+import Preload from "../Preload";
+import ErrorScreen from "../ErrorScreen";
 
 const Profile = () => {
-  const { setCurrentPage } = useContext(CurrentUserContext);
+  const { setCurrentPage, error, setError } = useContext(CurrentUserContext);
   const { profileId } = useParams();
-  const [params, setParams] = useState(profileId);
   const [profile, setProfile] = useState();
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [tab, setTab] = useState("tweets");
   const [tweetList, setTweetList] = useState([]);
-
   useEffect(() => {
+    setError(false);
     fetch(`/api/${profileId}/profile`)
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         setProfile(data.profile);
       })
       .then(() => {
@@ -28,114 +29,120 @@ const Profile = () => {
         setCurrentPage("Profile");
         return;
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
     fetch(`/api/${profileId}/feed`)
-      .then(data => data.json())
-      .then(data => {
-        console.log(data);
+      .then((data) => data.json())
+      .then((data) => {
         setTweetList(data["tweetIds"]);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
   }, [profileId]);
 
   const currentTabStyle = {
     color: `${COLORS.primary}`,
-    borderBottom: `${COLORS.primary} solid 2px`
-  };
-  const changeTab = (e, id) => {
-    return;
-    // document.getElementById("tweets").innerHTML -=
-    //   "<style = { currentTabStyle }/>";
-    // e.target.innerHTML += "<style = { currentTabStyle }/>";
+    borderBottom: `${COLORS.primary} solid 2px`,
   };
 
   return (
     <>
-      {profileLoaded ? (
+      {!error ? (
         <>
-          <div style={{ position: "relative" }}>
-            <Banner src={profile.bannerSrc} />
-            <Avatar src={profile.avatarSrc} />
-          </div>
-          <FollowDiv>
-            {profile.isBeingFollowedByYou ? (
-              <UnFollowBtn
-                onMouseEnter={e => (e.target.innerText = "Unfollow")}
-                onMouseLeave={e => (e.target.innerText = "Following")}
-              >
-                Following
-              </UnFollowBtn>
-            ) : (
-              <FollowBtn>Follow</FollowBtn>
-            )}
-          </FollowDiv>
-          <InfoBox>
-            <div>
-              <DisplayName>{profile.displayName}</DisplayName>
-              <HandleBox>
-                <Handle>@{profile.handle}</Handle>
-                {profile.isFollowingYou && <FollowsYou>Follows you</FollowsYou>}
-              </HandleBox>
-            </div>
-            <div>{profile.bio}</div>
-            <HandleBox>
-              <Details>
-                <TopRow>
-                  <Icon icon={mapPin} style={{ paddingRight: "4px" }} />
-                  {profile.location}
-                </TopRow>
+          {profileLoaded ? (
+            <>
+              <div style={{ position: "relative" }}>
+                <Banner src={profile.bannerSrc} />
+                <Avatar src={profile.avatarSrc} />
+              </div>
+              <FollowDiv>
+                {profile.isBeingFollowedByYou ? (
+                  <UnFollowBtn
+                    onMouseEnter={(e) => (e.target.innerText = "Unfollow")}
+                    onMouseLeave={(e) => (e.target.innerText = "Following")}
+                  >
+                    Following
+                  </UnFollowBtn>
+                ) : (
+                  <FollowBtn>Follow</FollowBtn>
+                )}
+              </FollowDiv>
+              <InfoBox>
                 <div>
-                  <Num>{profile.numFollowing}</Num> Following
+                  <DisplayName>{profile.displayName}</DisplayName>
+                  <HandleBox>
+                    <Handle>@{profile.handle}</Handle>
+                    {profile.isFollowingYou && (
+                      <FollowsYou>Follows you</FollowsYou>
+                    )}
+                  </HandleBox>
                 </div>
-              </Details>
-              <Details>
-                <TopRow>
-                  <Icon icon={calendar} style={{ paddingRight: "4px" }} />
-                  Joined {format(new Date(profile.joined), "MMMM yyyy")}
-                </TopRow>
-                <div>
-                  <Num>{profile.numFollowers}</Num> Followers
-                </div>
-              </Details>
-            </HandleBox>
-          </InfoBox>
-          <TabBox>
-            <Tab
-              id={"tweets"}
-              // onClick={changeTab}
-              onClick={() => setTab("tweets")}
-              style={tab === "tweets" ? currentTabStyle : {}}
-            >
-              Tweets
-            </Tab>
-            <Tab
-              id={"media"}
-              // onClick={changeTab}
-              onClick={() => setTab("media")}
-              style={tab === "media" ? currentTabStyle : {}}
-            >
-              Media
-            </Tab>
-            <Tab
-              id={"likes"}
-              // onClick={changeTab}
-              onClick={() => setTab("likes")}
-              style={tab === "likes" ? currentTabStyle : {}}
-            >
-              Likes
-            </Tab>
-          </TabBox>
-          <FeedBox>
-            {tab === "tweets" &&
-              tweetList.map(tweet => {
-                console.log("tweet", tweet);
-                return <Tweet key={tweet} id={tweet}></Tweet>;
-              })}
-            {tab !== "tweets" && <div>Oops! Not yet developped</div>}
-          </FeedBox>
+                <div>{profile.bio}</div>
+                <HandleBox>
+                  <Details>
+                    <TopRow>
+                      <Icon icon={mapPin} style={{ paddingRight: "4px" }} />
+                      {profile.location}
+                    </TopRow>
+                    <div>
+                      <Num>{profile.numFollowing}</Num> Following
+                    </div>
+                  </Details>
+                  <Details>
+                    <TopRow>
+                      <Icon icon={calendar} style={{ paddingRight: "4px" }} />
+                      Joined {format(new Date(profile.joined), "MMMM yyyy")}
+                    </TopRow>
+                    <div>
+                      <Num>{profile.numFollowers}</Num> Followers
+                    </div>
+                  </Details>
+                </HandleBox>
+              </InfoBox>
+              <TabBox>
+                <Tab
+                  id={"tweets"}
+                  // onClick={changeTab}
+                  onClick={() => setTab("tweets")}
+                  style={tab === "tweets" ? currentTabStyle : {}}
+                >
+                  Tweets
+                </Tab>
+                <Tab
+                  id={"media"}
+                  // onClick={changeTab}
+                  onClick={() => setTab("media")}
+                  style={tab === "media" ? currentTabStyle : {}}
+                >
+                  Media
+                </Tab>
+                <Tab
+                  id={"likes"}
+                  // onClick={changeTab}
+                  onClick={() => setTab("likes")}
+                  style={tab === "likes" ? currentTabStyle : {}}
+                >
+                  Likes
+                </Tab>
+              </TabBox>
+              <FeedBox>
+                {tab === "tweets" &&
+                  tweetList.map((tweet) => {
+                    return <Tweet key={tweet} id={tweet}></Tweet>;
+                  })}
+                {tab !== "tweets" && <div>Oops! Not yet developped</div>}
+              </FeedBox>
+            </>
+          ) : (
+            <Preload />
+          )}
         </>
       ) : (
-        ""
+        <ErrorScreen />
       )}
     </>
   );

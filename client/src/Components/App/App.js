@@ -9,6 +9,7 @@ import Profile from "../Profile";
 import HomeFeed from "../HomeFeed";
 import Sidebar from "../Sidebar";
 import TitleBar from "../TitleBar";
+import { COLORS } from "../../constants";
 
 const App = () => {
   return (
