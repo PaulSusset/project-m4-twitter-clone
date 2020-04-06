@@ -45,9 +45,9 @@ If the server sends back an error, an general error page was created.
 # Bugs and wishes
 
 List of bugs.
--If you go back to the homefeed page after another page got an error page it will break.
--If the homepage breaks and you use the Navbar to change go to the profile it will break
 
+- If you go back to the homefeed page after another page got an error page it will break.
+- If the homepage breaks and you use the Navbar to change go to the profile it will break
 - Like and retweet logos don't get correct styling on load. \*\*
 
 Wishes:
