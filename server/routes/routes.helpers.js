@@ -27,10 +27,10 @@ const simulateProblems = (res, data) => {
   }, delay);
 };
 
-const getUser = handle => {
+const getUser = (handle) => {
   return data.users[handle.toLowerCase()];
 };
-const getUserProfile = handle => {
+const getUserProfile = (handle) => {
   const user = getUser(handle);
 
   if (!user) {
@@ -56,7 +56,7 @@ const getUserProfile = handle => {
   return mutableUser;
 };
 
-const resolveRetweet = tweet => {
+const resolveRetweet = (tweet) => {
   if (!tweet.retweetOf) {
     return tweet;
   }
@@ -73,7 +73,7 @@ const resolveRetweet = tweet => {
   };
 };
 
-const denormalizeTweet = tweet => {
+const denormalizeTweet = (tweet) => {
   const tweetCopy = { ...tweet };
 
   delete tweetCopy.authorHandle;
@@ -91,9 +91,11 @@ const denormalizeTweet = tweet => {
   return tweetCopy;
 };
 
-const getTweetsFromUser = userId => {
+const getTweetsFromUser = (userId) => {
   return Object.values(data.tweets)
-    .filter(tweet => tweet.authorHandle.toLowerCase() === userId.toLowerCase())
+    .filter(
+      (tweet) => tweet.authorHandle.toLowerCase() === userId.toLowerCase()
+    )
     .map(resolveRetweet)
     .map(denormalizeTweet);
 };
@@ -116,12 +118,12 @@ const duplicateTweetReducer = (acc, tweet, index, allTweets) => {
   return [...acc, tweet];
 };
 
-const getTweetsForUser = userId => {
+const getTweetsForUser = (userId) => {
   const user = data.users[userId];
 
   return Object.values(data.tweets)
     .filter(
-      tweet =>
+      (tweet) =>
         user.followingIds.includes(tweet.authorHandle.toLowerCase()) ||
         tweet.authorHandle.toLowerCase() === CURRENT_USER_HANDLE.toLowerCase()
     )
