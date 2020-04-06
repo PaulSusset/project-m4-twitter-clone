@@ -12,7 +12,7 @@ const TitleBar = () => {
   return (
     <>
       {currentPage !== "Home" ? (
-        <TitleLink to="javascript:void(0);" onClick={history.goBack}>
+        <TitleLink to="" onClick={history.goBack}>
           <Icon icon={arrowLeft} size={26} style={{ marginRight: "5px" }} />{" "}
           {currentPage}
         </TitleLink>
@@ -28,10 +28,9 @@ const TitleLink = styled(Link)`
   align-items: center;
   color: black;
   text-decoration: none;
-  box-sizing: border-box;
   height: 74px;
   width: 100%;
-  max-width: 800px;
+  max-width: 801px;
   margin-right: 20%;
   position: fixed;
   top: 0;
@@ -41,7 +40,7 @@ const TitleLink = styled(Link)`
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
-  padding: 22px;
+  padding: 21px;
   background: white;
   z-index: 3;
 `;
@@ -49,7 +48,7 @@ const Title = styled.div`
   box-sizing: border-box;
   height: 74px;
   width: 100%;
-  max-width: 800px;
+  max-width: 801px;
   margin-right: 20%;
   position: fixed;
   top: 0;

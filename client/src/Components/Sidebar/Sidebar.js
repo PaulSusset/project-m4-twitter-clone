@@ -60,6 +60,7 @@ const StyledSidebar = styled.div`
   border-right: 1px lightgrey solid;
   padding: 15px;
   position: fixed;
+  margin-top: 0;
 `;
 const SidebarOption = styled.div`
   display: flex;

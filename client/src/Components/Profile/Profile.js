@@ -11,7 +11,9 @@ import Preload from "../Preload";
 import ErrorScreen from "../ErrorScreen";
 
 const Profile = () => {
-  const { setCurrentPage, error, setError } = useContext(CurrentUserContext);
+  const { setCurrentPage, currentPage, error, setError } = useContext(
+    CurrentUserContext
+  );
   const { profileId } = useParams();
   const [profile, setProfile] = useState();
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -26,7 +28,7 @@ const Profile = () => {
       })
       .then(() => {
         setProfileLoaded(true);
-        setCurrentPage("Profile");
+        setCurrentPage(`Profile`);
         return;
       })
       .catch((err) => {
@@ -42,7 +44,7 @@ const Profile = () => {
         console.log(err);
         setError(true);
       });
-  }, [profileId]);
+  }, [profileId, currentPage]);
 
   const currentTabStyle = {
     color: `${COLORS.primary}`,

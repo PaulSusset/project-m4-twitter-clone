@@ -2,8 +2,6 @@ import React from "react";
 import { Icon } from "react-icons-kit";
 import styled from "styled-components";
 import { aperture } from "react-icons-kit/feather";
-import { wikipediaW } from "react-icons-kit/fa";
-import { Link } from "react-router-dom";
 
 const ErrorScreen = () => {
   return (
@@ -11,7 +9,7 @@ const ErrorScreen = () => {
       <Icon size={50} icon={aperture} />
       <h2>An unknown error has occurred.</h2>
       <p>
-        Please try refreshing the page, or{" "}
+        Please try <a href={"/"}>refreshing</a> the page, or{" "}
         <a href={"//google.ca"}>contact support</a> if the problem persists
       </p>
     </BigBox>

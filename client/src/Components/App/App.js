@@ -9,7 +9,6 @@ import Profile from "../Profile";
 import HomeFeed from "../HomeFeed";
 import Sidebar from "../Sidebar";
 import TitleBar from "../TitleBar";
-import { COLORS } from "../../constants";
 
 const App = () => {
   return (
@@ -59,6 +58,7 @@ const StyledContent = styled.div`
   margin-left: 290px;
   max-width: 800px;
   width: 100%;
+  min-height: 100vh;
 `;
 
 export default App;

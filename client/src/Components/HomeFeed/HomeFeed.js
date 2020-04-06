@@ -14,14 +14,17 @@ const HomeFeed = () => {
   );
   const [tweetList, setTweetList] = useState([]);
   const [tweetSent, setTweetSent] = useState(false);
+  // const [tweetInfo, setTweetInfo] = useState({});
+  // setError(false);
   setCurrentPage("Home");
   useEffect(() => {
-    // setError(false);
     if (status === "idle") {
       fetch("/api/me/home-feed")
         .then((data) => data.json())
         .then((homeFeed) => {
           setTweetList(homeFeed["tweetIds"]);
+          // setTweetInfo(homeFeed["tweetsById"]);
+          console.log(homeFeed);
         })
         .catch((err) => {
           console.log(err);
@@ -31,13 +34,10 @@ const HomeFeed = () => {
   }, [status, tweetSent, error]);
 
   const charCount = (e) => {
-    if (e.target.value.length < 280) {
-      document.getElementById("countdown").innerText =
-        280 - e.target.value.length;
-    } else {
-      document.getElementById("countdown").innerText = 0;
-    }
+    document.getElementById("countdown").innerText =
+      280 - e.target.value.length;
   };
+
   const [tweetLoading, setTweetLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,7 +99,14 @@ const HomeFeed = () => {
               </form>
               <FeedBox>
                 {tweetList.map((tweet) => {
-                  return <Tweet key={tweet} id={tweet}></Tweet>;
+                  // console.log(tweetInfo);
+                  return (
+                    <Tweet
+                      key={tweet}
+                      id={tweet}
+                      // tweetInfo={tweetInfo[tweet]}
+                    ></Tweet>
+                  );
                 })}
               </FeedBox>
             </>

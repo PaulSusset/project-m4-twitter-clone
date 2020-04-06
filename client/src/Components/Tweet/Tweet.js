@@ -26,10 +26,10 @@ const Tweet = ({ id }) => {
         return tweetInfo;
       })
       .then((tweet) => {
-        setLoaded(true);
-        setIsLiked(tweet.isLiked);
         console.log(tweetInfo);
+        setIsLiked(tweetInfo.isLiked);
         setIsRetweeted(tweetInfo.isRetweeted);
+        setLoaded(true);
       });
   }, []);
   return (

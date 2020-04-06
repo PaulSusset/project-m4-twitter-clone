@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { iosHeartOutline } from "react-icons-kit/ionicons/iosHeartOutline";
-import { basic_heart } from "react-icons-kit/linea/basic_heart";
 import { heartO, heart } from "react-icons-kit/fa";
 import { Icon } from "react-icons-kit";
 import { messageCircle, repeat, share } from "react-icons-kit/feather";
