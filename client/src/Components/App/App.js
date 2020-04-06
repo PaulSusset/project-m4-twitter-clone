@@ -52,7 +52,7 @@ const StyledApp = styled.div`
   }
 `;
 const StyledContent = styled.div`
-  margin-top: 66px;
+  /* margin-top: 66px; */
   margin-right: 20%;
   border-right: 1px solid lightgrey;
   margin-left: 290px;

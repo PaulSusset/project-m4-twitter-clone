@@ -11,6 +11,7 @@ import Preload from "../Preload";
 import ErrorScreen from "../ErrorScreen";
 
 const Profile = () => {
+  window.scrollTo(0, 0);
   const { setCurrentPage, currentPage, error, setError } = useContext(
     CurrentUserContext
   );

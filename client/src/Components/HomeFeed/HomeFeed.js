@@ -9,6 +9,7 @@ import Preload from "../Preload";
 import ErrorScreen from "../ErrorScreen";
 
 const HomeFeed = () => {
+  window.scrollTo(0, 0);
   const { status, setCurrentPage, currentUser, error, setError } = useContext(
     CurrentUserContext
   );

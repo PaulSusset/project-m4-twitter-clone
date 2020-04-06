@@ -25,6 +25,7 @@ const TweetDetails = () => {
   const [tweetInfo, setTweetInfo] = useState(null);
   const [infoLoaded, setInfoLoaded] = useState(false);
   useEffect(() => {
+    window.scrollTo(0, 0);
     setError(false);
     fetch(`/api/tweet/${tweetId}`)
       .then((data) => data.json())

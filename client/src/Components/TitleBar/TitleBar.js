@@ -10,7 +10,7 @@ const TitleBar = () => {
   useEffect(() => {});
   let history = useHistory();
   return (
-    <>
+    <TitleBox>
       {currentPage !== "Home" ? (
         <TitleLink to="" onClick={history.goBack}>
           <Icon icon={arrowLeft} size={26} style={{ marginRight: "5px" }} />{" "}
@@ -19,7 +19,7 @@ const TitleBar = () => {
       ) : (
         <Title>{currentPage}</Title>
       )}
-    </>
+    </TitleBox>
   );
 };
 
@@ -32,35 +32,53 @@ const TitleLink = styled(Link)`
   width: 100%;
   max-width: 801px;
   margin-right: 20%;
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  /* top: 0; */
   box-sizing: border-box;
   font-size: 1.5rem;
   font-weight: 900;
   border-bottom: 1px solid lightgrey;
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
+  /* border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey; */
   padding: 21px;
   background: white;
-  z-index: 3;
+  /* z-index: 3; */
 `;
 const Title = styled.div`
   box-sizing: border-box;
   height: 74px;
   width: 100%;
+  /* max-width: 801px; */
+  /* margin-right: 20%; */
+  /* position: sticky; */
+  /* top: 0; */
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-bottom: 1px solid lightgrey;
+  /* border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey; */
+  padding: 22px;
+  background: white;
+  /* z-index: 2; */
+`;
+const TitleBox = styled.div`
+  box-sizing: border-box;
+  height: 74px;
+  width: 100%;
   max-width: 801px;
   margin-right: 20%;
-  position: fixed;
+  position: sticky;
+  float: left;
   top: 0;
   box-sizing: border-box;
   font-size: 1.5rem;
   font-weight: 900;
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  padding: 22px;
+  /* border-right: 1px solid lightgrey; */
+  /* padding: 22px; */
   background: white;
-  z-index: 2;
+  z-index: 3;
 `;
-
 export default TitleBar;
