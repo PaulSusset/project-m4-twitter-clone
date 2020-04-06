@@ -16,7 +16,7 @@ const Profile = () => {
     CurrentUserContext
   );
   const { profileId } = useParams();
-  const [profile, setProfile] = useState();
+  const [profile, setProfile] = useState(undefined);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [tab, setTab] = useState("tweets");
   const [tweetList, setTweetList] = useState([]);
@@ -29,7 +29,7 @@ const Profile = () => {
       })
       .then(() => {
         setProfileLoaded(true);
-        setCurrentPage(`Profile`);
+
         return;
       })
       .catch((err) => {
@@ -47,6 +47,9 @@ const Profile = () => {
       });
   }, [profileId, currentPage]);
 
+  useEffect(() => {
+    if (profile !== undefined) setCurrentPage(`${profile.displayName}`);
+  }, [profile]);
   const currentTabStyle = {
     color: `${COLORS.primary}`,
     borderBottom: `${COLORS.primary} solid 2px`,

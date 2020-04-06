@@ -40,8 +40,15 @@ const TweetDetails = () => {
         console.log(err);
         setError(true);
       });
-  }, []);
+  }, [isLiked, isRetweeted]);
 
+  useEffect(() => {
+    if (tweetInfo !== null && tweetInfo !== {}) {
+      setIsLiked(tweetInfo.isLiked);
+      setIsRetweeted(tweetInfo.isRetweeted);
+    }
+    // setInfoLoaded(true);
+  }, [tweetInfo]);
   return (
     <>
       {!error ? (

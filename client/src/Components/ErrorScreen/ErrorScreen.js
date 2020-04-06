@@ -9,7 +9,7 @@ const ErrorScreen = () => {
       <Icon size={50} icon={aperture} />
       <h2>An unknown error has occurred.</h2>
       <p>
-        Please try <a href={"/"}>refreshing</a> the page, or{" "}
+        Please try refreshing the page, or{" "}
         <a href={"//google.ca"}>contact support</a> if the problem persists
       </p>
     </BigBox>

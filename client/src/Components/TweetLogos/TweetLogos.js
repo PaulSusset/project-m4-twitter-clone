@@ -16,23 +16,24 @@ const TweetLogos = ({
   setIsRetweeted,
   tweetId,
 }) => {
-  // console.log(type, id, isRetweeted);
   const iconArr = [messageCircle, repeat, heartO, share];
   const [isLoaded, setIsLoaded] = useState(false);
   let bg = `${color}Bg`;
   let highlight = "";
-  if (id === 1) {
+  useEffect(() => {}, [isLiked, isRetweeted]);
+  console.log(isRetweeted, id);
+  if (id == 1) {
     highlight = isRetweeted;
-  }
-  if (id === 2) {
+  } else if (id == 2) {
     highlight = isLiked;
   } else {
     highlight = false;
   }
+  console.log(highlight);
   useEffect(() => {
     setIsLoaded(true);
   });
-  // const [loaded, setLoaded] = useState(false);
+
   const handleLike = (e) => {
     e.preventDefault();
     switch (type) {
@@ -129,8 +130,6 @@ const StyledHeart = styled(Icon)`
   &:hover {
     background: ${(props) => COLORS[props.bg]};
   }
-
-  /* position: absolute; */
 `;
 
 export default TweetLogos;

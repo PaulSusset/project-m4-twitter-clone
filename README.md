@@ -33,7 +33,7 @@ This page displays more detailed information about a specific tweet.
 Another element made was a sidebar which served as Navbar
 ![Sidebar](./assets/screenshots/turnIn/Sidebar.jpeg)
 
-I made a navigatable title bar, which you can click to navigate back all the way back to the home page and displays the current page-type.
+I made a navigatable title bar, which you can click to navigate back all the way back to the home page and displays the current page-type. It displays the current profile's display name.
 ![Titlebar](./assets/screenshots/turnIn/Titlebar.jpeg)
 
 A loading state indicator was added on each page to signal the wait for server response
@@ -48,13 +48,9 @@ List of bugs.
 
 - If you go back to the homefeed page after another page got an error page it will break.
 - If the homepage breaks and you use the Navbar to change go to the profile it will break
-- Like and retweet logos don't get correct styling on load. \*\*
 
 Wishes:
 
-- Interactive title bar for profile names \*\*
 - Follow/Unfollow/Following buttons changing on click
 - Responsive sidebar
 - Meow button modal from sidebar
-
-\*\* This due to information not being set properly. This issue was discovered late in the project and has implications on my understanding of the setState functions that I find worrisome. I would like to resolve this ultimately.

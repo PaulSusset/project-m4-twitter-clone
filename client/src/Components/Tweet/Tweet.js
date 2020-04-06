@@ -25,13 +25,20 @@ const Tweet = ({ id }) => {
         setTweetInfo(data["tweet"]);
         return tweetInfo;
       })
-      .then((tweet) => {
+      .then(() => {
         console.log(tweetInfo);
-        setIsLiked(tweetInfo.isLiked);
+        // setIsLiked(tweetInfo.isLiked);
         setIsRetweeted(tweetInfo.isRetweeted);
         setLoaded(true);
       });
   }, []);
+  useEffect(() => {
+    if (tweetInfo !== null && tweetInfo !== {}) {
+      setIsLiked(tweetInfo.isLiked);
+      setIsRetweeted(tweetInfo.isRetweeted);
+    }
+    // setInfoLoaded(true);
+  }, [tweetInfo]);
   return (
     <>
       {loaded ? (
