@@ -8,39 +8,39 @@ Three key pages were to be made
 
 # Homefeed
 
-![Homefeed](./assets/screenshots/turnIn/homefeed.jpeg)
+![Homefeed](./assets/screenshots/turnin/homefeed.jpeg)
 A home feed with all tweets rendered. Each tweet has the retweet source, avatar, handle, display name, status, media (if present), time of tweet and logos at the bottom to comment, retweet, like and share the tweet.
 
 This page also includes a box from which to publish tweets of your own!
 It features a loading state button on submit and a character countdown.
 The textArea box changes size to accomodate longer tweets thanks to a module.
-![Meow!](./assets/screenshots/turnIn/tweet.jpeg)
+![Meow!](./assets/screenshots/turnin/tweet.jpeg)
 
 # Profile
 
-![Profile page](./assets/screenshots/turnIn/profile.jpeg)
+![Profile page](./assets/screenshots/turnin/profile.jpeg)
 
 A profile page was made as a re-usable component displaying further user info as well as a list of all their tweets and retweets.
 Media and liked tabs aren't developped.
 
 # Tweet details
 
-![Big tweet](./assets/screenshots/turnIn/tweetdetails.jpeg)
+![Big tweet](./assets/screenshots/turnin/tweetdetails.jpeg)
 This page displays more detailed information about a specific tweet.
 
 # Other
 
 Another element made was a sidebar which served as Navbar
-![Sidebar](./assets/screenshots/turnIn/sidebar.jpeg)
+![Sidebar](./assets/screenshots/turnin/sidebar.jpeg)
 
 I made a navigatable title bar, which you can click to navigate back all the way back to the home page and displays the current page-type. It displays the current profile's display name.
-![Titlebar](./assets/screenshots/turnIn/titlebar.jpeg)
+![Titlebar](./assets/screenshots/turnin/titlebar.jpeg)
 
 A loading state indicator was added on each page to signal the wait for server response
-![Loading](./assets/screenshots/turnIn/loading.jpeg)
+![Loading](./assets/screenshots/turnin/loading.jpeg)
 
 If the server sends back an error, an general error page was created.
-![Error](./assets/screenshots/turnIn/error.jpeg)
+![Error](./assets/screenshots/turnin/error.jpeg)
 
 # Bugs and wishes
 
