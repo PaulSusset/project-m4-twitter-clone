@@ -14,33 +14,33 @@ A home feed with all tweets rendered. Each tweet has the retweet source, avatar,
 This page also includes a box from which to publish tweets of your own!
 It features a loading state button on submit and a character countdown.
 The textArea box changes size to accomodate longer tweets thanks to a module.
-![Meow!](./assets/screenshots/turnin/tweet.jpeg)
+![Meow!](https://i.imgur.com/xW17KvS.jpg)
 
 # Profile
 
-![Profile page](./assets/screenshots/turnin/profile.jpeg)
+![Profile page](https://i.imgur.com/XJimWQo.jpg)
 
 A profile page was made as a re-usable component displaying further user info as well as a list of all their tweets and retweets.
 Media and liked tabs aren't developped.
 
 # Tweet details
 
-![Big tweet](./assets/screenshots/turnin/tweetdetails.jpeg)
+![Big tweet](https://i.imgur.com/KecQmTK.jpg)
 This page displays more detailed information about a specific tweet.
 
 # Other
 
 Another element made was a sidebar which served as Navbar
-![Sidebar](./assets/screenshots/turnin/sidebar.jpeg)
+![Sidebar](https://i.imgur.com/3mvex3R.jpg)
 
 I made a navigatable title bar, which you can click to navigate back all the way back to the home page and displays the current page-type. It displays the current profile's display name.
-![Titlebar](./assets/screenshots/turnin/titlebar.jpeg)
+![Titlebar](https://i.imgur.com/zMamWug.jpg)
 
 A loading state indicator was added on each page to signal the wait for server response
-![Loading](./assets/screenshots/turnin/loading.jpeg)
+![Loading](https://i.imgur.com/h72o356.jpg)
 
 If the server sends back an error, an general error page was created.
-![Error](./assets/screenshots/turnin/error.jpeg)
+![Error](https://i.imgur.com/GZxqVv4.jpg)
 
 # Bugs and wishes
 
