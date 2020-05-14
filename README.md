@@ -8,7 +8,7 @@ Three key pages were to be made
 
 # Homefeed
 
-![Homefeed](/assets/screenshots/turnin/homefeed.jpeg)
+![image](/assets/screenshots/turnin/homefeed.jpeg)
 A home feed with all tweets rendered. Each tweet has the retweet source, avatar, handle, display name, status, media (if present), time of tweet and logos at the bottom to comment, retweet, like and share the tweet.
 
 This page also includes a box from which to publish tweets of your own!
