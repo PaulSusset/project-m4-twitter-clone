@@ -42,6 +42,11 @@ A loading state indicator was added on each page to signal the wait for server r
 If the server sends back an error, an general error page was created.
 ![Error](https://i.imgur.com/GZxqVv4.jpg)
 
+## Launching
+1. Clone the repo
+2. With 2 terminal windows, change directory into client/ and server/.
+3. For each, run command ```yarn install```, then ```yarn start```.
+
 # Bugs and wishes
 
 List of bugs.
