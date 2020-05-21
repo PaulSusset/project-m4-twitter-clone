@@ -51,8 +51,8 @@ If the server sends back an error, an general error page was created.
 
 List of bugs.
 
-- If you go back to the homefeed page after another page got an error page it will break.
-- If the homepage breaks and you use the Navbar to change go to the profile it will break
+- If you go back to the homefeed page after another page received an error from the server it will break.
+- If the homepage receives an error from the server and you use the Navbar to go to the profile it will break.
 
 Wishes:
 
