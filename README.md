@@ -4,6 +4,8 @@ Here is a project to create a twitter clone "Critter" made for cats.
 In this project we were supplied with a working server serving tweets and user information.
 The scope of this project was to make a working, dynamic front end.
 
+[![Critter Demo](https://i.imgur.com/z6vEItS.png)](https://youtu.be/sLEK9CFkCi4)
+
 Three key pages were to be made
 
 # Homefeed
