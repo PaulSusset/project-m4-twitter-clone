@@ -42,27 +42,29 @@ const HomeFeed = () => {
   const [tweetLoading, setTweetLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTweetLoading(true);
-    const data = { status: e.target.meowContent.value };
-    e.target.reset();
-    fetch("/api/tweet", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setTweetSent(!tweetSent);
-        setTweetLoading(false);
-        console.log(data);
+    if (e.target.meowContent.value.length > 0) {
+      setTweetLoading(true);
+      const data = { status: e.target.meowContent.value };
+      e.target.reset();
+      fetch("/api/tweet", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
       })
-      .catch((err) => {
-        console.log(err);
-        setError(true);
-      });
+        .then((data) => data.json())
+        .then((data) => {
+          setTweetSent(!tweetSent);
+          setTweetLoading(false);
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(true);
+        });
+    }
   };
 
   return (

@@ -21,15 +21,15 @@ const TweetLogos = ({
   let bg = `${color}Bg`;
   let highlight = "";
   useEffect(() => {}, [isLiked, isRetweeted]);
-  console.log(isRetweeted, id);
-  if (id == 1) {
+  // console.log(isRetweeted, id);
+  if (id === 1) {
     highlight = isRetweeted;
-  } else if (id == 2) {
+  } else if (id === 2) {
     highlight = isLiked;
   } else {
     highlight = false;
   }
-  console.log(highlight);
+  // console.log(highlight);
   useEffect(() => {
     setIsLoaded(true);
   });
@@ -45,9 +45,8 @@ const TweetLogos = ({
             "Accept": "application/json",
             "Content-Type": "application/json",
           },
-        })
-          .then((data) => data.json())
-          .then((data) => console.log(data));
+        }).then((data) => data.json());
+        // .then((data) => console.log(data));
         setIsLiked(!isLiked);
         break;
       }
@@ -59,9 +58,8 @@ const TweetLogos = ({
             "Accept": "application/json",
             "Content-Type": "application/json",
           },
-        })
-          .then((data) => data.json())
-          .then((data) => console.log(data));
+        }).then((data) => data.json());
+        // .then((data) => console.log(data));
         setIsRetweeted(!isRetweeted);
         break;
       }

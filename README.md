@@ -31,15 +31,19 @@ This page displays more detailed information about a specific tweet.
 # Other
 
 Another element made was a sidebar which served as Navbar
+
 ![Sidebar](./assets/screenshots/turnin/sidebar.jpeg)
 
 I made a navigatable title bar, which you can click to navigate back all the way back to the home page and displays the current page-type. It displays the current profile's display name.
+
 ![Titlebar](./assets/screenshots/turnin/titlebar.jpeg)
 
 A loading state indicator was added on each page to signal the wait for server response
+
 ![Loading](./assets/screenshots/turnin/loading.jpeg)
 
 If the server sends back an error, an general error page was created.
+
 ![Error](./assets/screenshots/turnin/error.jpeg)
 
 # Bugs and wishes
@@ -47,7 +51,7 @@ If the server sends back an error, an general error page was created.
 List of bugs.
 
 - If you go back to the homefeed page after another page got an error page it will break.
-- If the homepage breaks and you use the Navbar to change go to the profile it will break
+- If the homepage breaks and you use the Navbar to go to the profile it will break
 
 Wishes:
 

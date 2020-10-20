@@ -32,7 +32,7 @@ const users = {
     avatarSrc:
       'https://pbs.twimg.com/profile_images/1203323662591504384/GwxdsfNA_400x400.jpg',
     bannerSrc:
-      'https://pbs.twimg.com/profile_banners/1168513974763171840/1578494728/1500x500',
+      'https://i.insider.com/5d7be6942e22af1f164dfa90?width=1800&format=jpeg&auto=webp',
     location: undefined,
     url: undefined,
     joined: '2019-09-01T18:00',

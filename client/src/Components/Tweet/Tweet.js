@@ -26,7 +26,7 @@ const Tweet = ({ id }) => {
         return tweetInfo;
       })
       .then(() => {
-        console.log(tweetInfo);
+        // console.log(tweetInfo);
         // setIsLiked(tweetInfo.isLiked);
         setIsRetweeted(tweetInfo.isRetweeted);
         setLoaded(true);

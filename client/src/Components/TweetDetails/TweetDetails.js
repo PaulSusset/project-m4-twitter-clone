@@ -85,7 +85,7 @@ const TweetDetails = () => {
                   <StyledDate>
                     {format(
                       new Date(tweetInfo["sortedTimestamp"]),
-                      "K:mm b • MMM  do y"
+                      "K:mm a • MMM  do y"
                     )}{" "}
                     • Critter web app
                   </StyledDate>
