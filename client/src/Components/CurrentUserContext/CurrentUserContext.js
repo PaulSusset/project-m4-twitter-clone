@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { ip } from "../../constants";
 
 export const CurrentUserContext = createContext(null);
 
@@ -8,7 +9,7 @@ const CurrentUserProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState("Home");
   const [error, setError] = useState(false);
   useEffect(() => {
-    fetch("/api/me/profile")
+    fetch(`${ip}/api/me/profile`)
       .then((data) => data.json())
       .then((data) => {
         setCurrentUser(data);

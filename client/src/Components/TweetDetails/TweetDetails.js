@@ -7,7 +7,7 @@ import { Icon } from "react-icons-kit";
 import { repeat } from "react-icons-kit/feather";
 import { format } from "date-fns";
 import TweetLogos from "../TweetLogos";
-import { COLORS } from "../../constants";
+import { COLORS, ip } from "../../constants";
 import Preload from "../Preload";
 import ErrorScreen from "../ErrorScreen";
 
@@ -27,7 +27,7 @@ const TweetDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     setError(false);
-    fetch(`/api/tweet/${tweetId}`)
+    fetch(`${ip}/api/tweet/${tweetId}`)
       .then((data) => data.json())
       .then((data) => setTweetInfo(data.tweet))
       .then(() => {

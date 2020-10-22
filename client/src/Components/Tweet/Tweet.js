@@ -5,7 +5,7 @@ import { Icon } from "react-icons-kit";
 import { repeat } from "react-icons-kit/feather";
 import { format } from "date-fns";
 import TweetLogos from "../TweetLogos";
-import { COLORS } from "../../constants";
+import { COLORS, ip } from "../../constants";
 
 const Tweet = ({ id }) => {
   const tweetLogoArr = [
@@ -19,7 +19,7 @@ const Tweet = ({ id }) => {
   const [tweetInfo, setTweetInfo] = useState({});
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    fetch(`/api/tweet/${id}`)
+    fetch(`${ip}/api/tweet/${id}`)
       .then((data) => data.json())
       .then((data) => {
         setTweetInfo(data["tweet"]);

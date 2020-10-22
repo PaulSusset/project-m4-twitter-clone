@@ -1,9 +1,11 @@
+const url = 'https://twitter-clone-critter.herokuapp.com';
+
 const users = {
   diplomog: {
     handle: 'diplomog',
     displayName: 'Palmerston',
-    avatarSrc: '/assets/diplomog-avatar.jpg',
-    bannerSrc: '/assets/diplomog-banner.jpeg',
+    avatarSrc: `${url}/assets/diplomog-avatar.jpg`,
+    bannerSrc: `${url}/assets/diplomog-banner.jpeg`,
     location: 'Whitehall',
     url: 'http://fco.gov.uk',
     joined: '2016-02-02T12:00',
@@ -15,8 +17,8 @@ const users = {
   treasurymog: {
     handle: 'treasurymog',
     displayName: 'Gladstone, Esq.',
-    avatarSrc: '/assets/treasurymog-avatar.jpg',
-    bannerSrc: '/assets/treasurymog-banner.jpeg',
+    avatarSrc: `${url}/assets/treasurymog-avatar.jpg`,
+    bannerSrc: `${url}/assets/treasurymog-banner.jpeg`,
     location: 'Whitehall, London',
     url: undefined,
     joined: '2016-10-12T12:00',
@@ -67,7 +69,7 @@ const tweets = {
     media: [
       {
         type: 'img',
-        url: '/assets/ENRXDPKWwAEJqFu.jpeg',
+        url: `${url}/assets/ENRXDPKWwAEJqFu.jpeg`,
       },
     ],
   },
@@ -108,7 +110,7 @@ Maybe a more diplomatic approach will work 🤔`,
     media: [
       {
         type: 'img',
-        url: '/assets/diplomog-yarn.png',
+        url: `${url}/assets/diplomog-yarn.png`,
       },
     ],
   },
@@ -125,7 +127,7 @@ Special wishes to all my diplomats, far from home at this time of year, serving 
     media: [
       {
         type: 'img',
-        url: '/assets/EMoH94cXYAAM5Jj.jpeg',
+        url: `${url}/assets/EMoH94cXYAAM5Jj.jpeg`,
       },
     ],
   },
@@ -144,15 +146,15 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
     media: [
       {
         type: 'img',
-        url: '/assets/ENH2rRrWwAARmsZ.jpeg',
+        url: `${url}/assets/ENH2rRrWwAARmsZ.jpeg`,
       },
       // {
       //   type: 'img',
-      //   url: '/assets/ENH2rTvWwAYTqQW.jpeg',
+      //   url: `${url}/assets/ENH2rTvWwAYTqQW.jpeg`,
       // },
       // {
       //   type: 'img',
-      //   url: '/assets/ENH2rYeXYAEAIk7.jpeg',
+      //   url: `${url}/assets/ENH2rYeXYAEAIk7.jpeg`,
       // },
     ],
   },

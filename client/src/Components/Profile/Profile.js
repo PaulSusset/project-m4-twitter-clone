@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
-import { COLORS } from "../../constants";
+import { COLORS, ip } from "../../constants";
 import Tweet from "../Tweet";
 import { Icon } from "react-icons-kit";
 import { calendar, mapPin } from "react-icons-kit/feather";
@@ -22,7 +22,7 @@ const Profile = () => {
   const [tweetList, setTweetList] = useState([]);
   useEffect(() => {
     setError(false);
-    fetch(`/api/${profileId}/profile`)
+    fetch(`${ip}/api/${profileId}/profile`)
       .then((data) => data.json())
       .then((data) => {
         setProfile(data.profile);
@@ -36,7 +36,7 @@ const Profile = () => {
         console.log(err);
         setError(true);
       });
-    fetch(`/api/${profileId}/feed`)
+    fetch(`${ip}/api/${profileId}/feed`)
       .then((data) => data.json())
       .then((data) => {
         setTweetList(data["tweetIds"]);

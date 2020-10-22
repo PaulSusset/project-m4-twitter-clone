@@ -10,7 +10,11 @@ export const COLORS = {
   redBg: "hsla(360, 75%, 90%, 1)",
   // Green:
   green: "hsla(120, 49%, 35%, 1)",
-  greenBg: "hsla(120, 49%, 92%, 1)"
+  greenBg: "hsla(120, 49%, 92%, 1)",
 
   // Add more colors as needed!
 };
+const local = false;
+export const ip = local
+  ? ""
+  : "https://cors-anywhere.herokuapp.com/https://twitter-clone-critter.herokuapp.com";

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { heartO, heart } from "react-icons-kit/fa";
 import { Icon } from "react-icons-kit";
 import { messageCircle, repeat, share } from "react-icons-kit/feather";
-import { COLORS } from "../../constants";
+import { COLORS, ip } from "../../constants";
 import ScaleIn from "../ScaleIn";
 
 const TweetLogos = ({
@@ -38,7 +38,7 @@ const TweetLogos = ({
     e.preventDefault();
     switch (type) {
       case "like": {
-        fetch(`/api/tweet/${tweetId}/like`, {
+        fetch(`${ip}/api/tweet/${tweetId}/like`, {
           method: "PUT",
           body: JSON.stringify({ like: !isLiked }),
           headers: {
@@ -51,7 +51,7 @@ const TweetLogos = ({
         break;
       }
       case "retweet": {
-        fetch(`/api/tweet/${tweetId}/retweet`, {
+        fetch(`${ip}/api/tweet/${tweetId}/retweet`, {
           method: "PUT",
           body: JSON.stringify({ retweet: !isRetweeted }),
           headers: {

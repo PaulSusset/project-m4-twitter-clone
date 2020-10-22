@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CurrentUserContext } from "../CurrentUserContext/CurrentUserContext";
 import TextareaAutosize from "react-textarea-autosize";
 import Tweet from "../Tweet";
-import { COLORS } from "../../constants";
+import { COLORS, ip } from "../../constants";
 import Spinner from "../Spinner";
 import Preload from "../Preload";
 import ErrorScreen from "../ErrorScreen";
@@ -20,7 +20,7 @@ const HomeFeed = () => {
   setCurrentPage("Home");
   useEffect(() => {
     if (status === "idle") {
-      fetch("/api/me/home-feed")
+      fetch(`${ip}/api/me/home-feed`)
         .then((data) => data.json())
         .then((homeFeed) => {
           setTweetList(homeFeed["tweetIds"]);
@@ -46,7 +46,7 @@ const HomeFeed = () => {
       setTweetLoading(true);
       const data = { status: e.target.meowContent.value };
       e.target.reset();
-      fetch("/api/tweet", {
+      fetch(`${ip}/api/tweet`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
