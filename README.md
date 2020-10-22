@@ -2,6 +2,8 @@
 
 ## [Live demo](https://critter-twitter-clone.web.app/)
 
+### Video demo
+
 [![Critter Demo](https://i.imgur.com/z6vEItS.png)](https://youtu.be/sLEK9CFkCi4)
 
 Here is a project to create a twitter clone "Critter" made for cats.
